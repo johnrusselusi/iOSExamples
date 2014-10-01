@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface BNRItem : NSObject
-{
-  NSString *_itemName;
-  NSString *_serialNumber;
-  int _valueInDollars;
-  NSDate *_dateCreated;
-}
+
+@property (nonatomic, strong) NSString *itemName;
+@property (nonatomic, strong) NSString *serialNumber;
+@property (nonatomic) int valueInDollars;
+@property (nonatomic, readonly, strong) NSDate *dateCreated;
+@property (nonatomic, copy) NSString *itemKey;
+
 + (instancetype)randomItem;
 // Designated initializer for BNRItem
 - (instancetype)initWithItemName:(NSString *)name

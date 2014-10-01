@@ -1,31 +1,25 @@
 //
 //  BNRAppDelegate.m
-//  Homepwner
+//  TouchTracker
 //
-//  Created by John Russel Usi on 9/29/14.
-//  Copyright (c) 2014 Klab Cyscorpions. All rights reserved.
+//  Created by John Russel Usi on 10/1/14.
+//  Copyright (c) 2014 Klab Cyscorpions Training Center. All rights reserved.
 //
 
 #import "BNRAppDelegate.h"
-#import "BNRItemsViewController.h"
+#import "BNRDrawViewController.h"
 
 @implementation BNRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-  // Override point for customization after application launch
-  BNRItemsViewController *itemsViewController
-  = [[BNRItemsViewController alloc] init];
-  // Create an instance of a UINavigationController
-  // its stack contains only itemsViewController
-  UINavigationController *navController = [[UINavigationController alloc]
-                                           initWithRootViewController:itemsViewController];
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  // Override point for customization after application launch.
   
-  // Place navigation controller's view in the window hierarchy
-  self.window.rootViewController = navController;
+  BNRDrawViewController *dvc = [[BNRDrawViewController alloc]init];
+  self.window.rootViewController = dvc;
+  
   self.window.backgroundColor = [UIColor whiteColor];
-  
   [self.window makeKeyAndVisible];
   return YES;
 }
