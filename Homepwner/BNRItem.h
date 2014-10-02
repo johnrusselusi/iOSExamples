@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNRItem : NSObject
+@interface BNRItem : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *itemName;
 @property (nonatomic, strong) NSString *serialNumber;
 @property (nonatomic) int valueInDollars;
 @property (nonatomic, readonly, strong) NSDate *dateCreated;
 @property (nonatomic, copy) NSString *itemKey;
+@property (nonatomic, strong) UIImage *thumbnail;
 
 + (instancetype)randomItem;
 // Designated initializer for BNRItem
@@ -29,4 +30,5 @@
 - (void)setValueInDollars:(int)v;
 - (int)valueInDollars;
 - (NSDate *)dateCreated;
+- (void)setThumbnailFromImage:(UIImage *)image;
 @end

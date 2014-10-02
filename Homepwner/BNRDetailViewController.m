@@ -22,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 
 @end
@@ -90,6 +95,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
   //  Get picked image from info dictionary
   UIImage *image = info[UIImagePickerControllerOriginalImage];
   
+  [self.item setThumbnailFromImage:image];
+  
   //  Store the image in the BNRStoreImage for this key
   [[BNRImageStore sharedStore]setImage:image
                                 forKey:self.item.itemKey];
@@ -142,6 +149,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
   
   //  Use that image to put on the screen in the imageView
   self.imageView.image = imageToDisplay;
+  
+  [self updateFonts];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -248,9 +257,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                                      target:self action:@selector(cancel:)];
       self.navigationItem.leftBarButtonItem = cancelItem;
     }
+    
+    // Make sure this is NOT in the if (isNew ) { } block of code
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self
+                      selector:@selector(updateFonts)
+                          name:UIContentSizeCategoryDidChangeNotification
+                        object:nil];
   }
   
   return self;
+}
+
+- (void)dealloc
+{
+  NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+  [defaultCenter removeObserver:self];
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil
@@ -275,5 +297,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
   
   [self.presentingViewController dismissViewControllerAnimated:YES
                                                     completion:self.dismissBlock];
+}
+
+- (void)updateFonts
+{
+  UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+  self.nameLabel.font = font;
+  self.serialNumberLabel.font = font;
+  self.valueLabel.font = font;
+  self.dateLabel.font = font;
+  self.nameField.font = font;
+  self.serialNumberField.font = font;
+  self.valueField.font = font;
 }
 @end
