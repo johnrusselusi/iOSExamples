@@ -1,0 +1,24 @@
+
+/* Class = "IBUITextField"; placeholder = "Item Name"; ObjectID = "HlG-wL-yqn"; */
+"HlG-wL-yqn.placeholder" = "Item Name";
+
+/* Class = "IBUIBarButtonItem"; title = "Item"; ObjectID = "Iad-dK-hvo"; */
+"Iad-dK-hvo.title" = "Item";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "YJG-e1-ebh"; */
+"YJG-e1-ebh.text" = "Label";
+
+/* Class = "IBUITextField"; placeholder = "Item Price"; ObjectID = "Z3U-E4-Pj9"; */
+"Z3U-E4-Pj9.placeholder" = "Item Price";
+
+/* Class = "IBUILabel"; text = "Value"; ObjectID = "aLC-vW-S3r"; */
+"aLC-vW-S3r.text" = "Valor";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "ayo-5u-3ED"; */
+"ayo-5u-3ED.text" = "Nombre";
+
+/* Class = "IBUITextField"; placeholder = "Serial Number"; ObjectID = "uDG-f0-Sta"; */
+"uDG-f0-Sta.placeholder" = "Serial Number";
+
+/* Class = "IBUILabel"; text = "Serial"; ObjectID = "xIV-Vu-VeF"; */
+"xIV-Vu-VeF.text" = "Numero de serie";

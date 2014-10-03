@@ -14,13 +14,56 @@
 #import "BNRImageStore.h"
 #import "BNRImageViewController.h"
 
-@interface BNRItemsViewController () <UIPopoverControllerDelegate>
+@interface BNRItemsViewController () <UIPopoverControllerDelegate, UIDataSourceModelAssociation>
 
 @property (nonatomic, strong) UIPopoverController *imagePopover;
 
 @end
 
 @implementation BNRItemsViewController
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path
+                                                            coder:(NSCoder *)coder{
+
+  return [[self alloc]init];
+}
+
+- (NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)path
+                                            inView:(UIView *)view{
+
+  NSString *identifier = nil;
+  
+  if (path && view) {
+    
+    //  Return an identifier of the given NSIndexPath,
+    //  in case next time the data source changes
+    BNRItem *item = [[BNRItemStore sharedStore]allItems][path.row];
+    identifier = item.itemKey;
+  }
+  
+  return identifier;
+}
+
+- (NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier
+                                                 inView:(UIView *)view{
+
+  NSIndexPath *indexPath = nil;
+  
+  if (identifier) {
+    
+    NSArray *items = [[BNRItemStore sharedStore]allItems];
+    for (BNRItem *item in items) {
+      if ([identifier isEqualToString:item.itemKey]) {
+        
+        int row = [items indexOfObjectIdenticalTo:item];
+        indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+        break;
+      }
+    }
+  }
+  
+  return indexPath;
+}
 
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,6 +96,7 @@
   
   UINavigationController *navController = [[UINavigationController alloc]
                                            initWithRootViewController:detailViewController];
+  navController.restorationIdentifier = NSStringFromClass([navController class]);
   
   detailViewController.dismissBlock = ^{
     [self.tableView reloadData];
@@ -71,7 +115,10 @@
   self = [super initWithStyle:UITableViewStylePlain];
   if (self) {
     UINavigationItem *navItem = self.navigationItem;
-    navItem.title = @"Homepwner";
+    navItem.title = NSLocalizedString(@"Homepwner", @"Name of application");
+    
+    self.restorationIdentifier = NSStringFromClass([self class]);
+    self.restorationClass = [self class];
     
     // Create a new bar button item that will send
     // addNewItem: to BNRItemsViewController
@@ -89,9 +136,20 @@
            selector:@selector(updateTableViewForDynamicTypeSize)
                name:UIContentSizeCategoryDidChangeNotification
              object:nil];
+    
+    //  Register for locale change notifications
+    [nc addObserver:self
+           selector:@selector(localeChanged:)
+               name:NSCurrentLocaleDidChangeNotification
+             object:nil];
   }
   
   return self;
+}
+
+- (void)localeChanged:(NSNotification *)note{
+
+  [self.tableView reloadData];
 }
 
 - (void)dealloc{
@@ -128,7 +186,16 @@
   // Configure the cell with the BNRItem
   cell.nameLabel.text = item.itemName;
   cell.serialNumberLabel.text = item.serialNumber;
-  cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+  //  Create a number formatter for currency
+  static NSNumberFormatter *currencyFormatter = nil;
+  if (currencyFormatter == nil) {
+    
+    currencyFormatter = [[NSNumberFormatter alloc]init];
+    currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+  }
+  
+  cell.valueLabel.text = [currencyFormatter
+                          stringFromNumber:@(item.valueInDollars)];
   cell.thumbnailView.image = item.thumbnail;
   
   __weak BNRItemCell *weakCell = cell;
@@ -183,6 +250,8 @@
   //  Register this NIB, which contains the cell
   [self.tableView registerNib:nib
        forCellReuseIdentifier:@"BNRItemCell"];
+  
+  self.tableView.restorationIdentifier = @"BNRItemsViewControllerTableView";
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -234,6 +303,17 @@
   NSNumber *cellHeight = cellHeightDictionary[userSize];
   [self.tableView setRowHeight:cellHeight.floatValue];
   [self.tableView reloadData];
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+  [coder encodeBool:self.isEditing forKey:@"TableViewIsEditing"];
+  [super encodeRestorableStateWithCoder:coder];
+}
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+  self.editing = [coder decodeBoolForKey:@"TableViewIsEditing"];
+  [super decodeRestorableStateWithCoder:coder];
 }
 
 @end

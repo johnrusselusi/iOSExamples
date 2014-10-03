@@ -7,9 +7,11 @@
 //
 
 #import "BNRDetailViewController.h"
+#import "BNRAssetTypeViewController.h"
 #import "BNRItem.h"
 #import "BNRImageStore.h"
 #import "BNRItemStore.h"
+#import "BNRAppDelegate.h"
 
 @interface BNRDetailViewController ()
     <UINavigationControllerDelegate, UIImagePickerControllerDelegate,
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
@@ -29,9 +32,37 @@
 
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 
+- (IBAction)takePicture:(id)sender;
+- (IBAction)backGroundTapped:(id)sender;
+- (IBAction)showAssetTypePicker:(id)sender;
+
 @end
 
 @implementation BNRDetailViewController
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path
+                                                            coder:(NSCoder *)coder{
+
+  BOOL isNew = NO;
+  if ([path count] == 3) {
+    
+    isNew = YES;
+  }
+  
+  return [[self alloc]init];
+}
+
+- (IBAction)showAssetTypePicker:(id)sender {
+  
+  [self.view endEditing:YES];
+  
+  BNRAssetTypeViewController *avc = [[BNRAssetTypeViewController alloc] init];
+  avc.item = self.item;
+  
+  [self.navigationController pushViewController:avc
+                                       animated:YES];
+}
+
 - (IBAction)backGroundTapped:(id)sender {
   
   [self.view endEditing:YES];
@@ -150,6 +181,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
   //  Use that image to put on the screen in the imageView
   self.imageView.image = imageToDisplay;
   
+  NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
+  if (!typeLabel) {
+    
+    typeLabel = NSLocalizedString(@"None", @"Type label None");
+  }
+  
+  self.assetTypeButton.title = [NSString stringWithFormat:
+                                NSLocalizedString(@"Type: %@", @"Asset type button"), typeLabel];
+  
   [self updateFonts];
 }
 
@@ -162,7 +202,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
   BNRItem *item = self.item;
   item.itemName = self.nameField.text;
   item.serialNumber = self.serialNumberField.text;
-  item.valueInDollars = [self.valueField.text intValue];
+  
+  int newValue = [self.valueField.text intValue];
+  
+  //  Is it changed?
+  if (newValue != item.valueInDollars) {
+    
+    //  Put it in the item
+    item.valueInDollars = newValue;
+    
+    //  Store it as the default value for the next item
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger: newValue
+                  forKey:BNRNextItemValuePrefsKey];
+  }
 }
 
 - (void)viewDidLoad{
@@ -246,6 +299,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
   self = [super initWithNibName:nil bundle:nil];
   
   if (self) {
+    
+    self.restorationIdentifier = NSStringFromClass([self class]);
+    self.restorationClass = [self class];
+    
     if (isNew) {
       UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
                                    initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -288,6 +345,38 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
   
   [self.presentingViewController dismissViewControllerAnimated:YES
                                                     completion:self.dismissBlock];
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder{
+
+  [coder encodeObject:self.item.itemKey
+               forKey:@"item.itemKey"];
+  
+  //  Save changes into the item
+  self.item.itemName = self.nameField.text;
+  self.item.serialNumber = self.serialNumberField.text;
+  self.item.valueInDollars = [self.valueField.text intValue];
+  
+  // Have store save changes to disk
+  [[BNRItemStore sharedStore] saveChanges];
+  
+  [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder{
+
+  NSString *itemKey =
+  [coder decodeObjectForKey:@"item.itemKey"];
+  
+  for (BNRItem *item in [[BNRItemStore sharedStore]allItems]) {
+    
+    if ([itemKey isEqualToString:@"item.itemKey"]) {
+      self.item = item;
+      break;
+    }
+  }
+  
+  [super decodeRestorableStateWithCoder:coder];
 }
 
 - (void)cancel:(id)sender{

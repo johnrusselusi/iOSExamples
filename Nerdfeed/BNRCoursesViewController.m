@@ -26,8 +26,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
   self.webViewController.title = course[@"title"];
   self.webViewController.URL = URL;
-  [self.navigationController pushViewController:self.webViewController
-                                       animated:YES];
+  
+  if (!self.splitViewController) {
+    
+    [self.navigationController pushViewController:self.webViewController
+                                         animated:YES];
+  }
+  
 }
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section{
@@ -97,7 +102,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [super viewDidLoad];
   
   [self.tableView registerClass:[UITableViewCell class]
-         forCellReuseIdentifier:@"UITableViewCell"];
+         forCellReuseIdentifier:@"UITableViewCell"]; 
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task

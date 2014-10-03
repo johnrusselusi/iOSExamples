@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1930D89119DEACB9003A1B8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1930D89019DEACB9003A1B8F /* Foundation.framework */; };
+		1930D89319DEACB9003A1B8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1930D89219DEACB9003A1B8F /* CoreGraphics.framework */; };
+		1930D89519DEACB9003A1B8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1930D89419DEACB9003A1B8F /* UIKit.framework */; };
+		1930D89B19DEACB9003A1B8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1930D89919DEACB9003A1B8F /* InfoPlist.strings */; };
+		1930D89D19DEACB9003A1B8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1930D89C19DEACB9003A1B8F /* main.m */; };
+		1930D8A119DEACB9003A1B8F /* BNRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1930D8A019DEACB9003A1B8F /* BNRAppDelegate.m */; };
+		1930D8A319DEACB9003A1B8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1930D8A219DEACB9003A1B8F /* Images.xcassets */; };
+		1930D8AA19DEACB9003A1B8F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1930D8A919DEACB9003A1B8F /* XCTest.framework */; };
+		1930D8AB19DEACB9003A1B8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1930D89019DEACB9003A1B8F /* Foundation.framework */; };
+		1930D8AC19DEACB9003A1B8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1930D89419DEACB9003A1B8F /* UIKit.framework */; };
+		1930D8B419DEACB9003A1B8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1930D8B219DEACB9003A1B8F /* InfoPlist.strings */; };
+		1930D8B619DEACB9003A1B8F /* ColorboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1930D8B519DEACB9003A1B8F /* ColorboardTests.m */; };
+		1930D8C019DEAD16003A1B8F /* Colorboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1930D8BF19DEAD16003A1B8F /* Colorboard.storyboard */; };
+		1930D8C319DEB3B4003A1B8F /* BNRColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1930D8C219DEB3B4003A1B8F /* BNRColorViewController.m */; };
+		1930D8C619DEB84B003A1B8F /* BNRPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1930D8C519DEB84B003A1B8F /* BNRPaletteViewController.m */; };
+		1930D8C919DEB931003A1B8F /* BNRColorDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1930D8C819DEB931003A1B8F /* BNRColorDescription.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1930D8AD19DEACB9003A1B8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1930D88519DEACB9003A1B8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1930D88C19DEACB9003A1B8F;
+			remoteInfo = Colorboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1930D88D19DEACB9003A1B8F /* Colorboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1930D89019DEACB9003A1B8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1930D89219DEACB9003A1B8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1930D89419DEACB9003A1B8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1930D89819DEACB9003A1B8F /* Colorboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Colorboard-Info.plist"; sourceTree = "<group>"; };
+		1930D89A19DEACB9003A1B8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1930D89C19DEACB9003A1B8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1930D89E19DEACB9003A1B8F /* Colorboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Colorboard-Prefix.pch"; sourceTree = "<group>"; };
+		1930D89F19DEACB9003A1B8F /* BNRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRAppDelegate.h; sourceTree = "<group>"; };
+		1930D8A019DEACB9003A1B8F /* BNRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRAppDelegate.m; sourceTree = "<group>"; };
+		1930D8A219DEACB9003A1B8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1930D8A819DEACB9003A1B8F /* ColorboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1930D8A919DEACB9003A1B8F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1930D8B119DEACB9003A1B8F /* ColorboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorboardTests-Info.plist"; sourceTree = "<group>"; };
+		1930D8B319DEACB9003A1B8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1930D8B519DEACB9003A1B8F /* ColorboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorboardTests.m; sourceTree = "<group>"; };
+		1930D8BF19DEAD16003A1B8F /* Colorboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Colorboard.storyboard; sourceTree = "<group>"; };
+		1930D8C119DEB3B4003A1B8F /* BNRColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRColorViewController.h; path = ../BNRColorViewController.h; sourceTree = "<group>"; };
+		1930D8C219DEB3B4003A1B8F /* BNRColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRColorViewController.m; path = ../BNRColorViewController.m; sourceTree = "<group>"; };
+		1930D8C419DEB84B003A1B8F /* BNRPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRPaletteViewController.h; path = ../BNRPaletteViewController.h; sourceTree = "<group>"; };
+		1930D8C519DEB84B003A1B8F /* BNRPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRPaletteViewController.m; path = ../BNRPaletteViewController.m; sourceTree = "<group>"; };
+		1930D8C719DEB931003A1B8F /* BNRColorDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRColorDescription.h; sourceTree = "<group>"; };
+		1930D8C819DEB931003A1B8F /* BNRColorDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRColorDescription.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1930D88A19DEACB9003A1B8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1930D89319DEACB9003A1B8F /* CoreGraphics.framework in Frameworks */,
+				1930D89519DEACB9003A1B8F /* UIKit.framework in Frameworks */,
+				1930D89119DEACB9003A1B8F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1930D8A519DEACB9003A1B8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1930D8AA19DEACB9003A1B8F /* XCTest.framework in Frameworks */,
+				1930D8AC19DEACB9003A1B8F /* UIKit.framework in Frameworks */,
+				1930D8AB19DEACB9003A1B8F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1930D88419DEACB9003A1B8F = {
+			isa = PBXGroup;
+			children = (
+				1930D8BF19DEAD16003A1B8F /* Colorboard.storyboard */,
+				1930D89619DEACB9003A1B8F /* Colorboard */,
+				1930D8AF19DEACB9003A1B8F /* ColorboardTests */,
+				1930D88F19DEACB9003A1B8F /* Frameworks */,
+				1930D88E19DEACB9003A1B8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1930D88E19DEACB9003A1B8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1930D88D19DEACB9003A1B8F /* Colorboard.app */,
+				1930D8A819DEACB9003A1B8F /* ColorboardTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1930D88F19DEACB9003A1B8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1930D89019DEACB9003A1B8F /* Foundation.framework */,
+				1930D89219DEACB9003A1B8F /* CoreGraphics.framework */,
+				1930D89419DEACB9003A1B8F /* UIKit.framework */,
+				1930D8A919DEACB9003A1B8F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1930D89619DEACB9003A1B8F /* Colorboard */ = {
+			isa = PBXGroup;
+			children = (
+				1930D8C119DEB3B4003A1B8F /* BNRColorViewController.h */,
+				1930D8C419DEB84B003A1B8F /* BNRPaletteViewController.h */,
+				1930D8C519DEB84B003A1B8F /* BNRPaletteViewController.m */,
+				1930D8C719DEB931003A1B8F /* BNRColorDescription.h */,
+				1930D8C819DEB931003A1B8F /* BNRColorDescription.m */,
+				1930D8C219DEB3B4003A1B8F /* BNRColorViewController.m */,
+				1930D89F19DEACB9003A1B8F /* BNRAppDelegate.h */,
+				1930D8A019DEACB9003A1B8F /* BNRAppDelegate.m */,
+				1930D8A219DEACB9003A1B8F /* Images.xcassets */,
+				1930D89719DEACB9003A1B8F /* Supporting Files */,
+			);
+			path = Colorboard;
+			sourceTree = "<group>";
+		};
+		1930D89719DEACB9003A1B8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1930D89819DEACB9003A1B8F /* Colorboard-Info.plist */,
+				1930D89919DEACB9003A1B8F /* InfoPlist.strings */,
+				1930D89C19DEACB9003A1B8F /* main.m */,
+				1930D89E19DEACB9003A1B8F /* Colorboard-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1930D8AF19DEACB9003A1B8F /* ColorboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				1930D8B519DEACB9003A1B8F /* ColorboardTests.m */,
+				1930D8B019DEACB9003A1B8F /* Supporting Files */,
+			);
+			path = ColorboardTests;
+			sourceTree = "<group>";
+		};
+		1930D8B019DEACB9003A1B8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1930D8B119DEACB9003A1B8F /* ColorboardTests-Info.plist */,
+				1930D8B219DEACB9003A1B8F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1930D88C19DEACB9003A1B8F /* Colorboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1930D8B919DEACB9003A1B8F /* Build configuration list for PBXNativeTarget "Colorboard" */;
+			buildPhases = (
+				1930D88919DEACB9003A1B8F /* Sources */,
+				1930D88A19DEACB9003A1B8F /* Frameworks */,
+				1930D88B19DEACB9003A1B8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Colorboard;
+			productName = Colorboard;
+			productReference = 1930D88D19DEACB9003A1B8F /* Colorboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1930D8A719DEACB9003A1B8F /* ColorboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1930D8BC19DEACB9003A1B8F /* Build configuration list for PBXNativeTarget "ColorboardTests" */;
+			buildPhases = (
+				1930D8A419DEACB9003A1B8F /* Sources */,
+				1930D8A519DEACB9003A1B8F /* Frameworks */,
+				1930D8A619DEACB9003A1B8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1930D8AE19DEACB9003A1B8F /* PBXTargetDependency */,
+			);
+			name = ColorboardTests;
+			productName = ColorboardTests;
+			productReference = 1930D8A819DEACB9003A1B8F /* ColorboardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1930D88519DEACB9003A1B8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BNR;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Klab Cyscorpions Training Center";
+				TargetAttributes = {
+					1930D8A719DEACB9003A1B8F = {
+						TestTargetID = 1930D88C19DEACB9003A1B8F;
+					};
+				};
+			};
+			buildConfigurationList = 1930D88819DEACB9003A1B8F /* Build configuration list for PBXProject "Colorboard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1930D88419DEACB9003A1B8F;
+			productRefGroup = 1930D88E19DEACB9003A1B8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1930D88C19DEACB9003A1B8F /* Colorboard */,
+				1930D8A719DEACB9003A1B8F /* ColorboardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1930D88B19DEACB9003A1B8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1930D8C019DEAD16003A1B8F /* Colorboard.storyboard in Resources */,
+				1930D89B19DEACB9003A1B8F /* InfoPlist.strings in Resources */,
+				1930D8A319DEACB9003A1B8F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1930D8A619DEACB9003A1B8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1930D8B419DEACB9003A1B8F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1930D88919DEACB9003A1B8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1930D89D19DEACB9003A1B8F /* main.m in Sources */,
+				1930D8C619DEB84B003A1B8F /* BNRPaletteViewController.m in Sources */,
+				1930D8C919DEB931003A1B8F /* BNRColorDescription.m in Sources */,
+				1930D8A119DEACB9003A1B8F /* BNRAppDelegate.m in Sources */,
+				1930D8C319DEB3B4003A1B8F /* BNRColorViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1930D8A419DEACB9003A1B8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1930D8B619DEACB9003A1B8F /* ColorboardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1930D8AE19DEACB9003A1B8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1930D88C19DEACB9003A1B8F /* Colorboard */;
+			targetProxy = 1930D8AD19DEACB9003A1B8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1930D89919DEACB9003A1B8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1930D89A19DEACB9003A1B8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1930D8B219DEACB9003A1B8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1930D8B319DEACB9003A1B8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1930D8B719DEACB9003A1B8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1930D8B819DEACB9003A1B8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1930D8BA19DEACB9003A1B8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CYSCORPIONS INC";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Colorboard/Colorboard-Prefix.pch";
+				INFOPLIST_FILE = "Colorboard/Colorboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1930D8BB19DEACB9003A1B8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CYSCORPIONS INC";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Colorboard/Colorboard-Prefix.pch";
+				INFOPLIST_FILE = "Colorboard/Colorboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1930D8BD19DEACB9003A1B8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Colorboard.app/Colorboard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Colorboard/Colorboard-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ColorboardTests/ColorboardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1930D8BE19DEACB9003A1B8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Colorboard.app/Colorboard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Colorboard/Colorboard-Prefix.pch";
+				INFOPLIST_FILE = "ColorboardTests/ColorboardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1930D88819DEACB9003A1B8F /* Build configuration list for PBXProject "Colorboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1930D8B719DEACB9003A1B8F /* Debug */,
+				1930D8B819DEACB9003A1B8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1930D8B919DEACB9003A1B8F /* Build configuration list for PBXNativeTarget "Colorboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1930D8BA19DEACB9003A1B8F /* Debug */,
+				1930D8BB19DEACB9003A1B8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1930D8BC19DEACB9003A1B8F /* Build configuration list for PBXNativeTarget "ColorboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1930D8BD19DEACB9003A1B8F /* Debug */,
+				1930D8BE19DEACB9003A1B8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1930D88519DEACB9003A1B8F /* Project object */;
+}
